@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  database:
+    image: postgres:13
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=franchisor_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_HOST=database
+    volumes:
+      - postgresql_data_franchisor:/var/lib/postgresql/data
+
+volumes:
+  postgresql_data_franchisor:
